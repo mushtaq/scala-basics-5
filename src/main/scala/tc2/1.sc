@@ -1,7 +1,7 @@
 import tc2.Monoid
 
-def sum[T](xs: List[T])(implicit monoid: Monoid[T]): T =
-  xs.foldLeft(monoid.zero)(monoid.combine)
+def sum[T: Monoid](xs: List[T]): T =
+  xs.foldLeft(Monoid[T].zero)(Monoid[T].combine)
 
 
 sum(List(1, 2))
